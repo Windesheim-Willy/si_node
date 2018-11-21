@@ -1,0 +1,3 @@
+[submodule "components/social_interaction"]
+	path = components/social_interaction
+	url = https://github.com/Windesheim-Willy/social_interaction.git
