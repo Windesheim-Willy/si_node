@@ -7,3 +7,6 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 git submodule update --init --recursive
+
+# Install social interaction
+exec "components/social_interaction/INSTALL"
