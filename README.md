@@ -1,4 +1,4 @@
-# pi3_si
+# Social interaction node
 
 ## Installation on a Raspberry PI
 
