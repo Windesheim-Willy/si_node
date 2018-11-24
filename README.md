@@ -47,9 +47,8 @@ This node contains all the social interaction components of Willy.
 
 ```
 cd /opt
-sudo git clone https://github.com/xxxx/xxxx.git willy
+sudo git clone https://github.com/Windesheim-Willy/si_node.git willy
 cd willy
-sudo git checkout feature/infrastructure # TODO remove
 sudo ./INSTALL
 
 ```
