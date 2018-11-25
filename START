@@ -18,7 +18,7 @@ start)
   ;;
 stop)
   cd $WOKRING_DIR/components/social_interaction
-  exec START stop
+  exec ./START stop
   ;;
 restart)
   $0 stop
