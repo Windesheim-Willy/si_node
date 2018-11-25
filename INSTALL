@@ -25,6 +25,10 @@ echo "@xset s off" >> /etc/xdg/lxsession/LXDE/autostart
 echo "@xset -dpms" >> /etc/xdg/lxsession/LXDE/autostart
 sed -i "s/#xserver-command=X/xserver-command=X -s 0 -dpms/g" /etc/lightdm/lightdm.conf
 
+# Disable the cursor
+apt-get install unclutter
+echo "@unclutter -idle 0.1 -root" >> /etc/xdg/lxsession/LXDE/autostart
+
 
 # Install social interaction
 cd $CURRENTDIR/components/social_interaction
