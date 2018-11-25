@@ -8,14 +8,17 @@
 # Short-Description:  Enable willy processes
 ### END INIT INFO
 
-cd /opt/willy
+WOKRING_DIR="/opt/willy"
+cd $WOKRING_DIR
 
 case "$1" in
 start)
-  exec ./components/social_interaction/START start &>/dev/null &
+  cd $WOKRING_DIR/components/social_interaction
+  exec ./START start
   ;;
 stop)
-  exec ./components/social_interaction/START stop &>/dev/null &
+  cd $WOKRING_DIR/components/social_interaction
+  exec START stop
   ;;
 restart)
   $0 stop

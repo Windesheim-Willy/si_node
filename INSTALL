@@ -20,10 +20,11 @@ echo $HOSTNAME > /boot/hostnames
 echo "Hostname changed to $HOSTNAME"
 
 # Disable the screensave
-echo "@xset s noblank" > /etc/xdg/lxsession/LXDE/autostart
-echo "@xset s off" > /etc/xdg/lxsession/LXDE/autostart
-echo "@xset -dpms" > /etc/xdg/lxsession/LXDE/autostart
-echo "xserver-command=X -s 0 -dpms" > /etc/lightdm/lightdm.conf
+echo "@xset s noblank" >> /etc/xdg/lxsession/LXDE/autostart
+echo "@xset s off" >> /etc/xdg/lxsession/LXDE/autostart
+echo "@xset -dpms" >> /etc/xdg/lxsession/LXDE/autostart
+sed -i "s/#xserver-command=X/xserver-command=X -s 0 -dpms/g" /etc/lightdm/lightdm.conf
+
 
 # Install social interaction
 cd $CURRENTDIR/components/social_interaction
