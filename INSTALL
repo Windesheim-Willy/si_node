@@ -29,6 +29,8 @@ sed -i "s/#xserver-command=X/xserver-command=X -s 0 -dpms/g" /etc/lightdm/lightd
 apt-get install unclutter
 echo "@unclutter -idle 0.1 -root" >> /etc/xdg/lxsession/LXDE/autostart
 
+# Rotate screen
+echo "display_rotate=9" >> /boot/config.txt
 
 # Install social interaction
 cd $CURRENTDIR/components/social_interaction
