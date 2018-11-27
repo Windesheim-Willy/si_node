@@ -2,7 +2,7 @@
 set -e
 
 CURRENTDIR=$(pwd)
-HOSTNAME="si_node"
+HOSTNAME="sinode"
 
 # Make sure only root can run our script
 if [ "$(id -u)" != "0" ]; then
