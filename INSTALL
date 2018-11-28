@@ -1,0 +1,40 @@
+#!/bin/bash
+set -e
+
+CURRENTDIR=$(pwd)
+HOSTNAME="si_node"
+
+# Make sure only root can run our script
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+# Update all packages
+git submodule update --init --recursive
+
+# Change the hostname
+sed -i "s/raspberrypi/${HOSTNAME}/g" /etc/hosts
+echo $HOSTNAME > /etc/hostname
+echo $HOSTNAME > /boot/hostnames
+echo "Hostname changed to $HOSTNAME"
+
+# Disable the screensave
+echo "@xset s noblank" >> /etc/xdg/lxsession/LXDE/autostart
+echo "@xset s off" >> /etc/xdg/lxsession/LXDE/autostart
+echo "@xset -dpms" >> /etc/xdg/lxsession/LXDE/autostart
+sed -i "s/#xserver-command=X/xserver-command=X -s 0 -dpms/g" /etc/lightdm/lightdm.conf
+
+# Disable the cursor
+apt-get install unclutter
+echo "@unclutter -idle 0.1 -root" >> /etc/xdg/lxsession/LXDE/autostart
+
+
+# Install social interaction
+cd $CURRENTDIR/components/social_interaction
+exec ./INSTALL
+
+ln -s $CURRENTDIR/START /etc/init.d/willy
+update-rc.d willy enable
+
+cd $CURRENTDIR
