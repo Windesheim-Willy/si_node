@@ -1,3 +1,6 @@
 [submodule "components/social_interaction"]
 	path = components/social_interaction
 	url = https://github.com/Windesheim-Willy/social_interaction.git
+[submodule "components/speech_recognition"]
+	path = components/speech_recognition
+	url = https://github.com/Windesheim-Willy/speech_recognition.git
