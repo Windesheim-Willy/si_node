@@ -36,6 +36,14 @@ echo "display_rotate=9" >> /boot/config.txt
 cd $CURRENTDIR/components/social_interaction
 exec ./INSTALL
 
+# Install speech recongnition
+cd $CURRENTDIR/components/speech_recognition
+exec ./INSTALL
+
+# Install speech
+cd $CURRENTDIR/components/speech
+exec ./INSTALL
+
 ln -s $CURRENTDIR/START /etc/init.d/willy
 update-rc.d willy enable
 

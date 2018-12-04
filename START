@@ -17,11 +17,15 @@ start)
   exec ./START start &>/dev/null &
   cd $WOKRING_DIR/components/speech_recognition
   exec ./START start &>/dev/null &
+  cd $WOKRING_DIR/components/speech
+  exec ./START start &>/dev/null &
   ;;
 stop)
   cd $WOKRING_DIR/components/social_interaction
   exec ./START stop
   cd $WOKRING_DIR/components/speech_recognition
+  exec ./START stop
+  cd $WOKRING_DIR/components/speech
   exec ./START stop
   ;;
 restart)
